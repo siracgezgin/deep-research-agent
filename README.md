@@ -730,24 +730,24 @@ class CustomSearchTool:
 
 ## Dokümantasyon
 
-### Kapsamlı Rehberler
+### Mevcut Dokümantasyon
 
-**PROJECT_GUIDE.md**
-- Tam mimari dokümantasyon
-- Uygulama detayları ve tasarım kararları
-- Teknoloji seçim gerekçesi
-- Adım adım yeniden oluşturma rehberi
-- Gelişmiş yapılandırma seçenekleri
+Tüm teknik detaylar, kurulum adımları, kullanım örnekleri ve geliştirme rehberleri bu README dosyasında bulunmaktadır.
 
-**SUMMARY.md**
-- Hızlı referans rehberi
-- Ana özellikler genel bakış
-- Kullanım örnekleri
+**İçerik:**
+- Genel bakış ve özellikler
+- Detaylı kurulum adımları
+- Kullanım örnekleri (Web + CLI)
+- Performans metrikleri ve optimizasyon
+- Yapılandırma seçenekleri
+- Sorun giderme rehberi
+- Geliştirme ve genişletme kılavuzu
+- Versiyon geçmişi
 
-**docs/archive/**
-- Geliştirme geçmişi
-- Özellik evrim dokümantasyonu
-- Eski uygulama notları
+**Ek Kaynaklar:**
+- `config.yaml`: Sistem yapılandırma dosyası
+- `requirements.txt`: Python bağımlılıkları
+- `src/`: Kaynak kod ve yorumlar
 
 ## Versiyon Geçmişi
 
@@ -840,7 +840,7 @@ Bu proje aşağıdaki teknoloji ve hizmetleri kullanmaktadır:
 
 ---
 
-## 🔧 Teknolojiler
+## Teknolojiler
 
 | Teknoloji | Amaç | Neden? |
 |-----------|------|--------|
@@ -849,8 +849,6 @@ Bu proje aşağıdaki teknoloji ve hizmetleri kullanmaktadır:
 | **Streamlit** | UI | Hızlı prototipleme, Python-only, reactive UI |
 | **asyncio** | Paralel işleme | Concurrent requests, 6x hızlanma |
 | **Pydantic** | Validasyon | Type-safe data models |
-
-Detaylar: [PROJECT_GUIDE.md - Teknolojiler](PROJECT_GUIDE.md#kullanılan-teknolojiler)
 
 ---
 
@@ -869,7 +867,7 @@ Detaylar: [PROJECT_GUIDE.md - Teknolojiler](PROJECT_GUIDE.md#kullanılan-teknolo
 
 ---
 
-## 📝 Kullanım
+## Kullanım
 
 ### UI Mode (Önerilen)
 
@@ -931,14 +929,12 @@ research:
 
 **Bu projeyi sıfırdan oluşturmak için:**
 
-1. **[PROJECT_GUIDE.md](PROJECT_GUIDE.md)** oku (özellikle "Sıfırdan Kurulum" bölümü)
-2. Proje yapısını oluştur
-3. Bağımlılıkları yükle
-4. API keylerini al ve `.env` dosyasına ekle
-5. Kaynak kodları ekle (repodaki `src/` klasörünü kopyala)
-6. Test et: `python main.py`
-
-**Tüm adımlar detaylıca dokümante edilmiştir.**
+1. Yukarıdaki [Kurulum ve Yapılandırma](#kurulum-ve-yapılandırma) adımlarını takip edin
+2. Proje yapısını GitHub'dan klonlayın: `git clone https://github.com/siracgezgin/deep-research-agent.git`
+3. Sanal ortam oluşturun ve bağımlılıkları yükleyin
+4. API anahtarlarınızı `.env` dosyasına ekleyin
+5. Kurulum doğrulaması yapın
+6. Web arayüzü veya CLI ile test edin: `python main.py`
 
 ---
 
@@ -966,11 +962,9 @@ streamlit run src/ui/app.py
 3. **"Çok yavaş"** → Flash modellere geçin (yukarıdaki Demo Modu ayarları)
 4. **"Import error"** → Virtual environment aktif mi? `source .venv/bin/activate`
 
-Detaylı: [PROJECT_GUIDE.md - Sorun Giderme](PROJECT_GUIDE.md#sorun-giderme)
-
 ---
 
-## 📊 Sistem Akışı
+## Sistem Akışı
 
 ```
 1. Kullanıcı → Ana konu girer
@@ -995,8 +989,6 @@ Detaylı: [PROJECT_GUIDE.md - Sorun Giderme](PROJECT_GUIDE.md#sorun-giderme)
 - ✅ Rate limit koruması (15 RPM Gemini)
 - ✅ Hata yönetimi (retry + fallback)
 - ✅ Loglama ve debug
-
-Mimari detayları: [PROJECT_GUIDE.md - Mimari](PROJECT_GUIDE.md#mimari-ve-tasarım)
 
 ---
 
@@ -1064,8 +1056,6 @@ Bu projede kullanılan/incelenen kaynaklar:
 - **Streamlit Gallery**: UI patterns, custom CSS
 - **asyncio Documentation**: Paralel işleme, semaphore patterns
 
-Tam liste: [PROJECT_GUIDE.md - Harici Kaynaklar](PROJECT_GUIDE.md#harici-kaynaklar)
-
 ---
 
 ## Versiyon Notları
@@ -1091,4 +1081,4 @@ Tam liste: [PROJECT_GUIDE.md - Harici Kaynaklar](PROJECT_GUIDE.md#harici-kaynakl
 **Son Güncelleme:** 15 Aralık 2025  
 **Performans:** 60 saniye (demo) | 150 saniye (production)
 
-**İLK KEZ Mİ KULLANIYORSUN?** [PROJECT_GUIDE.md](PROJECT_GUIDE.md) oku!
+**İLK KEZ Mİ KULLANIYORSUN?** Yukarıdaki [Hızlı Başlangıç](#kurulum-ve-yapılandırma) bölümünü oku!
