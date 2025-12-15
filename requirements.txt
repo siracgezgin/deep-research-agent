@@ -1,0 +1,33 @@
+# Python bağımlılıkları
+# Martur Deep Research Agent
+
+# Core
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# Google AI
+google-genai>=0.2.0
+google-generativeai>=0.3.0
+
+# Web Scraping (CPU-only, hafif)
+crawl4ai>=0.3.0
+playwright>=1.40.0
+
+# Web Search
+tavily-python>=0.3.0
+
+# Utilities
+requests>=2.31.0
+aiohttp>=3.9.0
+
+# Web Interface
+streamlit>=1.29.0
+
+# Data Processing
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# Monitoring & Logging
+loguru>=0.7.0
+pyyaml>=6.0.0
+loguru>=0.7.0

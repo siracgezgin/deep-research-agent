@@ -1,0 +1,69 @@
+# AI Research Agent Configuration
+# ================================
+
+# API Keys (override via environment variables)
+api_keys:
+  google_gemini: ${GOOGLE_API_KEY}
+  tavily: ${TAVILY_API_KEY}
+
+# Model Configuration (DEMO: Fast mode - all flash)
+models:
+  planner: "gemini-2.5-flash"     # DEMO: pro -> flash (2x faster)
+  researcher: "gemini-2.5-flash"
+  writer: "gemini-2.5-flash"      # DEMO: pro -> flash (2x faster)
+
+# Rate Limiting
+rate_limits:
+  requests_per_minute: 5
+  requests_per_day: 20
+  retry_max_attempts: 3
+  retry_initial_delay: 1.0
+  auto_wait_on_429: true
+
+# Research Settings (DEMO: Reduced scope for speed)
+research:
+  max_subtopics: 4          # DEMO: 6 -> 4 (faster demo)
+  min_subtopics: 3          # Minimum alt başlık
+  max_search_results: 5     # Her subtopic için maksimum web arama sonucu
+  enable_scraping: false    # Web scraping açık/kapalı (yavaşlatır)
+  max_concurrent_scrapes: 3
+  scrape_timeout_seconds: 30
+
+# Report Settings
+report:
+  style: "professional"     # professional, academic, casual
+  max_output_tokens: 8000
+  temperature: 0.7
+  include_metadata: true
+  include_sources: true
+  format: "markdown"        # markdown, html (gelecekte: pdf)
+
+# Caching (gelecek özellik)
+cache:
+  enabled: false
+  ttl_hours: 24
+  max_cache_size_mb: 100
+
+# Logging
+logging:
+  level: "INFO"             # DEBUG, INFO, WARNING, ERROR
+  format: "detailed"        # simple, detailed, json
+  file_output: true
+  console_output: true
+  log_dir: "logs"
+
+# UI Settings
+ui:
+  theme: "light"            # light, dark
+  show_progress_details: true
+  auto_download_report: false
+  page_title: "AI Deep Research Agent"
+
+# Performance
+performance:
+  parallel_research: true       # Paralel araştırma aktif (6x hız artışı)
+  max_concurrent_requests: 5    # Max paralel istek (rate limit koruması)
+  use_cache: false
+  optimize_memory: true
+  streaming_enabled: true       # Streaming report (UX iyileştirmesi)
+  stream_update_interval: 0.05  # 50ms (UI update throttling)

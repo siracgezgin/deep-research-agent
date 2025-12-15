@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# Cache
+cache/
+.cache/
+*.cache
+
+# Reports
+reports/
+*.md
+!README.md
+!docs/**/*.md
+
+# Playwright
+.playwright/
+
+# Docker
+.dockerignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution
+dist/
+build/
+*.egg-info/
