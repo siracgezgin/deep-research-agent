@@ -152,94 +152,158 @@ Otomatik bakış açısı tespiti, çatışma analizi ve konsensüs haritalama i
 
 ### Teknoloji Yığını
 
-**Dil Modelleri**
-- Google Gemini 2.5 Pro: Stratejik planlama ve rapor üretimi
-- Google Gemini 2.5 Flash: Yüksek hızlı araştırma analizi
-- Gerçek zamanlı içerik sunumu için akış API desteği
+<table>
+<tr>
+<th>Kategori</th>
+<th>Teknoloji</th>
+<th>Kullanım Amacı</th>
+<th>Avantaj</th>
+</tr>
+<tr>
+<td rowspan="2"><b>AI/LLM</b></td>
+<td>Gemini 2.5 Pro</td>
+<td>Planlama & Yazım</td>
+<td>2M context, ücretsiz tier</td>
+</tr>
+<tr>
+<td>Gemini 2.5 Flash</td>
+<td>Hızlı Araştırma</td>
+<td>2x hız, streaming API</td>
+</tr>
+<tr>
+<td><b>Arama</b></td>
+<td>Tavily API</td>
+<td>Web Scraping</td>
+<td>AI-optimize, 1K/ay ücretsiz</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Backend</b></td>
+<td>Python 3.12+</td>
+<td>Core Runtime</td>
+<td>asyncio native support</td>
+</tr>
+<tr>
+<td>Pydantic</td>
+<td>Validation</td>
+<td>Type-safe, auto docs</td>
+</tr>
+<tr>
+<td>PyYAML</td>
+<td>Config</td>
+<td>Human-readable</td>
+</tr>
+<tr>
+<td><b>Frontend</b></td>
+<td>Streamlit</td>
+<td>Web UI</td>
+<td>Python-only, rapid dev</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Utils</b></td>
+<td>python-dotenv</td>
+<td>Secrets</td>
+<td>Secure key mgmt</td>
+</tr>
+<tr>
+<td>tenacity</td>
+<td>Retry Logic</td>
+<td>Exponential backoff</td>
+</tr>
+<tr>
+<td>loguru</td>
+<td>Logging</td>
+<td>Colored, structured</td>
+</tr>
+</table>
 
-**Web Arama**
-- Tavily API: Otomatik içerik çıkarma ile AI-optimize arama
-- Güvenilirlik göstergeleri dahil kaynak meta verileri
-- Ayda 1000 ücretsiz arama (üretim kullanımı için yeterli)
+### Proje Yapısı
 
-**Backend Framework**
-- Eşzamanlı işlemler için asyncio ile Python 3.12+
-- Active internet connection for API access
+```
+deep-research-agent/
+├── src/
+│   ├── agents/
+│   │   ├── planner_agent.py      # Alt başlık planlayıcı
+│   │   ├── researcher_agent.py   # Web araştırmacı
+│   │   └── writer_agent.py       # Rapor yazıcı
+│   ├── tools/
+│   │   └── web_tools.py          # Tavily web arama
+│   ├── utils/
+│   │   ├── source_scorer.py      # Kaynak skorlama
+│   │   ├── perspective_analyzer.py  # Perspektif analizi
+│   │   ├── quality_metrics.py    # Kalite metrikleri
+│   │   ├── config_loader.py      # Config yönetimi
+│   │   └── logger.py             # Loglama
+│   ├── workflow/
+│   │   └── orchestrator.py       # Workflow engine
+│   └── ui/
+│       └── app.py                # Streamlit UI
+├── config.yaml                   # Sistem yapılandırması
+├── requirements.txt              # Python bağımlılıkları
+├── main.py                       # Uygulama giriş noktası
+└── README.md                     # Bu dosya
+```
 
-### Step 1: Clone Repository
+## Kurulum ve Yapılandırma
+
+### Ön Gereksinimler
+
+<table>
+<tr>
+<td width="50%">
+
+**Sistem Gereksinimleri**
+- Python 3.12+
+- pip paket yöneticisi
+- Git versiyonlama sistemi
+- İnternet bağlantısı
+
+</td>
+<td width="50%">
+
+**API Anahtarları** (Ücretsiz)
+- [**Gemini API**](https://aistudio.google.com/app/apikey)
+  - 15 RPM, 1500 RPD limiti
+- [**Tavily API**](https://tavily.com)
+  - 1000 arama/ay ücretsiz
+
+</td>
+</tr>
+</table>
+
+### Hızlı Kurulum (3 Dakika)
 
 ```bash
+# 1. Depoyu klonla
 git clone https://github.com/siracgezgin/deep-research-agent.git
 cd deep-research-agent
-```
 
-### Step 2: Create Virtual Environment
+# 2. Sanal ortam oluştur
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# On Linux/Mac:
-source venv/bin/activate
-
-# On Windows:
-venv\Scripts\activate
-```
-
-### Step 3: Install Dependencies
-
-```bash
+# 3. Bağımlılıkları yükle
 pip install -r requirements.txt
+
+# 4. API anahtarlarını ayarla
+cat > .env << EOF
+GEMINI_API_KEY=buraya_gemini_api_anahtariniz
+TAVILY_API_KEY=buraya_tavily_api_anahtariniz
+EOF
+
+# 5. Kurulumu doğrula
+python -c "print('✅ Kurulum başarılı!')"
 ```
 
-### Step 4: Configure API Keys
+<details>
+<summary><b>Manuel .env Dosyası Oluşturma</b></summary>
 
-**Required API Keys:**
-
-1. **Google Gemini API Key**
-   - Navigate to: https://aistudio.google.com/app/apikey
-   - Create new API key or use existing key
-   - Free tier: 15 requests/minute, 1500 requests/day
-
-2. **Tavily Search API Key**
-   - Navigate to: https://tavily.com/
-   - Sign up for free account
-   - Free tier: 1000 searches/month
-
-**Configuration:**
-
-```bash
-# Copy example environment file
-cp .env.example .env
-
-# Edit .env file with your API keys
-nano .env  # or use your preferred editor
-```
-
-Anahtarlarınızı `.env` dosyasına ekleyin:
+Proje kök dizininde `.env` dosyası oluşturun:
 
 ```env
-GOOGLE_API_KEY=buraya_gemini_api_anahtariniz
+GEMINI_API_KEY=buraya_gemini_api_anahtariniz
 TAVILY_API_KEY=buraya_tavily_api_anahtariniz
 ```
-
-### Adım 5: Kurulumu Doğrulayın
-
-```bash
-# API bağlantısını test et
-python -c "
-import google.generativeai as genai
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-
-model = genai.GenerativeModel('gemini-2.5-flash')
-response = model.generate_content('Merhaba')
-print('Gemini API: Bağlantı Başarılı')
-"
+</details>
 ```
 
 ## Kullanım
@@ -549,40 +613,40 @@ Yavaş, sıkıcı                   6x hızlı!
 
 ## Kalite Metrikleri Çerçevesi
 
-### Six-Dimensional Assessment
+### Altı Boyutlu Değerlendirme
 
-**Source Count (0-15 points)**
-- Minimum threshold: 3 sources
-- Optimal range: 8-12 sources
-- Scoring: Linear scaling based on source quantity
+**Kaynak Sayısı (0-15 puan)**
+- Minimum eşik: 3 kaynak
+- Optimal aralık: 8-12 kaynak
+- Puanlama: Kaynak miktarına göre doğrusal ölçeklendirme
 
-**Source Diversity (0-15 points)**
-- Domain uniqueness measurement
-- Source type variety (news, academic, government, commercial)
-- Geographic and temporal distribution
+**Kaynak Çeşitliliği (0-15 puan)**
+- Domain benzersizlik ölçümü
+- Kaynak tipi çeşitliliği (haber, akademik, devlet, ticari)
+- Coğrafi ve zamansal dağılım
 
-**Source Reliability (0-20 points)**
-- Domain authority assessment
-- Academic journal recognition
-- Government and educational institution preference
-- Citation pattern analysis
+**Kaynak Güvenilirliği (0-20 puan)**
+- Domain otoritesi değerlendirmesi
+- Akademik dergi tanıma
+- Devlet ve eğitim kurumu tercihi
+- Alıntı kalıp analizi
 
-**Content Depth (0-20 points)**
-- Average content length evaluation
-- Structural complexity assessment
-- Citation and reference density
-- Technical detail level
+**İçerik Derinliği (0-20 puan)**
+- Ortalama içerik uzunluk değerlendirmesi
+- Yapısal karmaşıklık değerlendirmesi
+- Alıntı ve referans yoğunluğu
+- Teknik detay seviyesi
 
-**Recency (0-15 points)**
-- Publication date weighting
-- 2025 content: Maximum points
-- Exponential decay for older content
-- Topic-specific temporal relevance
+**Güncellik (0-15 puan)**
+- Yayın tarihi ağırlıklandırma
+- 2025 içeriği: Maksimum puan
+- Eski içerik için üssel azalma
+- Konuya özgü zamansal ilişki
 
-**Coverage (0-15 points)**
-- Subtopic completion rate
-- Research objective fulfillment
-- Comprehensive perspective representation
+**Kapsam (0-15 puan)**
+- Alt başlık tamamlanma oranı
+- Araştırma hedefi karşılanması
+- Kapsamlı perspektif temsili
 
 ### Notlandırma Skalası
 
@@ -626,19 +690,19 @@ Yavaş, sıkıcı                   6x hızlı!
 
 ## Sorun Giderme
 
-### Common Issues and Solutions
+### Yaygın Sorunlar ve Çözümler
 
-**Issue: API Key Errors**
+**Sorun: API Anahtar Hataları**
 
 ```
-Error: google.generativeai.types.generation_types.StopCandidateException
+Hata: google.generativeai.types.generation_types.StopCandidateException
 ```
 
-Solution:
-- Verify API keys in `.env` file
-- Check API key validity at provider dashboard
-- Ensure no extra whitespace in key values
-- Confirm environment file is loaded correctly
+Çözüm:
+- `.env` dosyasındaki API anahtarlarını doğrulayın
+- Sağlayıcı kontrol panelinde API anahtarı geçerliliğini kontrol edin
+- Anahtar değerlerinde fazladan boşluk olmadığından emin olun
+- Ortam dosyasının doğru yüklenip yüklenmediğini doğrulayın
 
 **Sorun: Hız Limiti Aşıldı (429)**
 
@@ -681,9 +745,9 @@ Hata: ModuleNotFoundError: No module named 'streamlit'
 
 ## Geliştirme ve Genişletme
 
-### Adding Custom Agents
+### Özel Ajanlar Ekleme
 
-Agents inherit from base LLM interface:
+Ajanlar temel LLM arayüzünden kalıtım alır:
 
 ```python
 import google.generativeai as genai
@@ -692,7 +756,7 @@ class CustomAgent:
     def __init__(self, model_name="gemini-2.5-flash"):
         self.model = genai.GenerativeModel(
             model_name=model_name,
-            system_instruction="Your agent instructions here",
+            system_instruction="Ajan talimatlarınız burada",
             generation_config={
                 "temperature": 0.7,
                 "response_mime_type": "application/json"
