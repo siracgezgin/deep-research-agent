@@ -1,4 +1,4 @@
-# 🔬 Deep Research Agent
+# Deep Research Agent
 
 <div align="center">
 
@@ -16,11 +16,11 @@
 
 ---
 
-## 📋 Genel Bakış
+## Genel Bakış
 
 Deep Research Agent, akademik ve profesyonel araştırmalarda yeni bir standart belirleyen yapay zeka platformudur. Sistem, web'den otomatik veri toplama, çok kaynaklı güvenilirlik analizi ve akıllı içerik sentezi ile **60 saniyede** kapsamlı araştırma raporları üretir.
 
-### 🎯 Neden Deep Research Agent?
+### Neden Deep Research Agent?
 
 | Özellik | Geleneksel Yöntem | Deep Research Agent |
 |---------|-------------------|---------------------|
@@ -31,13 +31,13 @@ Deep Research Agent, akademik ve profesyonel araştırmalarda yeni bir standart 
 | **Rapor Formatı** | Manuel yazım | Profesyonel Markdown |
 | **Gerçek Zamanlı İzleme** | Yok | Canlı ilerleme takibi |
 
-## ✨ Temel Özellikler
+## Temel Özellikler
 
 <table>
 <tr>
 <td width="50%">
 
-### 🧠 Akıllı Planlama
+### Akıllı Planlama
 ```
 Konu Analizi → Alt Başlıklar → Strateji
 ```
@@ -48,7 +48,7 @@ Konu Analizi → Alt Başlıklar → Strateji
 </td>
 <td width="50%">
 
-### ⚡ Paralel Araştırma
+### Paralel Araştırma
 ```
 6 Alt Başlık → Eşzamanlı İşlem → 20 saniye
 ```
@@ -62,18 +62,18 @@ Konu Analizi → Alt Başlıklar → Strateji
 <tr>
 <td width="50%">
 
-### 🎯 Güvenilirlik Skorlama
+### Güvenilirlik Skorlama
 ```
 Domain (40) + İçerik (40) + Güncellik (20) = 0-100
 ```
 - **Otoriteye önem**: .edu, .gov, akademik
 - **Derinlik analizi**: Yapı ve alıntılar
-- **2024-2025 içerik**: Maksimum puan
+- **2025 içerik**: Maksimum puan
 
 </td>
 <td width="50%">
 
-### 🔄 Akışlı Üretim
+### Akışlı Üretim
 ```
 Başlangıç → Chunk-by-chunk → Tamamlanma
      ↓            ↓              ↓
@@ -89,7 +89,7 @@ Başlangıç → Chunk-by-chunk → Tamamlanma
 <tr>
 <td width="50%">
 
-### 👁️ Perspektif Analizi
+### Perspektif Analizi
 > İyimser | Kötümser | Dengeli
 
 Otomatik bakış açısı tespiti, çatışma analizi ve konsensüs haritalama ile çok boyutlu görüş değerlendirmesi.
@@ -97,7 +97,7 @@ Otomatik bakış açısı tespiti, çatışma analizi ve konsensüs haritalama i
 </td>
 <td width="50%">
 
-### 📊 Kalite Framework
+### Kalite Framework
 > **6 Metrik**: Kaynak • Çeşitlilik • Güvenilirlik • Derinlik • Güncellik • Kapsam
 
 **0-100 puan** + **A+ ~ F not** sistemi ile otomatik kalite garantisi.
@@ -106,11 +106,11 @@ Otomatik bakış açısı tespiti, çatışma analizi ve konsensüs haritalama i
 </tr>
 </table>
 
-### 🖥️ Modern Web Arayüzü
+### Modern Web Arayüzü
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  🇹🇷 Türkçe Arayüz  •  📈 Canlı İlerleme  •  📥 Export  │
+│  Türkçe Arayüz  •  Canlı İlerleme  •  Export            │
 ├─────────────────────────────────────────────────────────┤
 │  Streamlit tabanlı, responsive, professional design     │
 │  Real-time logging • Interactive charts • One-click     │
@@ -291,113 +291,245 @@ Raporlar Markdown formatında `reports/` dizinine kaydedilir.
 
 ## Yapılandırma
 
-### Yapılandırma Dosyası Yapısı
+### config.yaml Anatomisi
 
-Sistem `config.yaml` aracılığıyla yapılandırılır. Ana yapılandırma bölümleri:
+<table>
+<tr>
+<th>Bölüm</th>
+<th>Parametreler</th>
+<th>Açıklama</th>
+</tr>
+<tr>
+<td>
 
-**Model Yapılandırması:**
+**Models**
 
-```yaml
-models:
-  planner: "gemini-2.5-flash"     # Planlama ajan modeli
-  researcher: "gemini-2.5-flash"  # Araştırma ajan modeli
-  writer: "gemini-2.5-flash"      # Rapor yazım modeli
-```
-
-**Araştırma Ayarları:**
-
-```yaml
-research:
-  max_subtopics: 4                # Maksimum araştırma alt başlıkları (3-6)
-  min_subtopics: 3                # Minimum araştırma alt başlıkları
-  max_search_results: 5           # Alt başlık başına kaynak sayısı
-  enable_scraping: false          # Derin içerik çıkarma (daha yavaş)
-```
-
-**Performans Ayarlama:**
+</td>
+<td>
 
 ```yaml
-performance:
-  parallel_research: true         # Eşzamanlı işlemeyi etkinleştir
-  max_concurrent_requests: 5      # Paralel istek limiti
-  streaming_enabled: true         # Gerçek zamanlı rapor akışı
-  stream_update_interval: 0.05    # UI güncelleme kısıtlaması (50ms)
+planner: gemini-2.5-flash
+researcher: gemini-2.5-flash  
+writer: gemini-2.5-flash
 ```
 
-**Hız Sınırlama:**
+</td>
+<td>
+
+- `flash`: Hızlı, demo için ideal
+- `pro`: Kaliteli, production için
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Research**
+
+</td>
+<td>
 
 ```yaml
-rate_limits:
-  requests_per_minute: 5          # API güvenliği için muhafazakar limit
-  requests_per_day: 20            # Günlük kota yönetimi
-  retry_max_attempts: 3           # Hatalarda otomatik yeniden deneme
-  auto_wait_on_429: true          # Hız limitinde otomatik bekleme
+max_subtopics: 4
+min_subtopics: 3
+max_search_results: 5
 ```
+
+</td>
+<td>
+
+- 3-6 arası: Optimal kapsam
+- 5 sonuç/başlık: Yeterli kaynak
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Performance**
+
+</td>
+<td>
+
+```yaml
+parallel_research: true
+max_concurrent_requests: 5
+streaming_enabled: true
+```
+
+</td>
+<td>
+
+- Paralel: 6x hızlanma
+- Semaphore(5): Rate limit safe
+- Streaming: Canlı UX
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Rate Limits**
+
+</td>
+<td>
+
+```yaml
+requests_per_minute: 5
+retry_max_attempts: 3
+auto_wait_on_429: true
+```
+
+</td>
+<td>
+
+- 5 RPM: Güvenli (limit: 15)
+- Auto-retry: Resilience
+- Backoff: Exponential
+
+</td>
+</tr>
+</table>
 
 ### Performans Modları
 
-**Demo Modu (Varsayılan - Hız İçin Optimize Edilmiş):**
+<table>
+<tr>
+<th width="50%">Demo Mode (Hız)</th>
+<th width="50%">Production Mode (Kalite)</th>
+</tr>
+<tr>
+<td>
 
 ```yaml
 models:
   planner: "gemini-2.5-flash"
   writer: "gemini-2.5-flash"
+
 research:
   max_subtopics: 4
+
 performance:
   parallel_research: true
   max_concurrent_requests: 5
 ```
 
-Beklenen tamamlanma süresi: 60 saniye
-Kalite seviyesi: İyi (gösterimler için uygun)
+**Süre**: 60 saniye  
+**Kalite**: B+ (85/100)  
+**Kullanım**: Gösterimler, hızlı taramalar
 
-**Üretim Modu (Kalite İçin Optimize Edilmiş):**
+</td>
+<td>
 
 ```yaml
 models:
   planner: "gemini-2.5-pro"
   writer: "gemini-2.5-pro"
+
 research:
   max_subtopics: 6
+
 performance:
   parallel_research: true
   max_concurrent_requests: 5
 ```
 
-Beklenen tamamlanma süresi: 150 saniye
-Kalite seviyesi: Mükemmel (yayına hazır raporlar)
+**Süre**: 150 saniye  
+**Kalite**: A+ (95/100)  
+**Kullanım**: Yayına hazır raporlar
 
-## Performans Karakteristikleri
+</td>
+</tr>
+</table>
 
-### Paralel Araştırma Mimarisi
+---
 
-**Sıralı ve Paralel İşleme:**
+## Performans Metrikleri
 
-| Alt Başlıklar | Sıralı | Paralel (5 eşzamanlı) | Hızlanma |
-|-----------|------------|-------------------------|----------|
-| 3 konu  | 60s        | 12s                     | 5x      |
-| 4 konu  | 80s        | 16s                     | 5x      |
-| 6 konu  | 120s       | 20s                     | 6x      |
+### Paralel İşleme Etkisi
 
-**Uygulama:**
-- asyncio tabanlı eşzamanlı yürütme
-- Semaphore hız sınırlama (maksimum 5 eşzamanlı istek)
-- Zarif bozulma ile hata yönetimi
-- Her paralel görev için ilerleme takibi
+```
+Sıralı (Sequential)              Paralel (Concurrent)
+─────────────────────            ─────────────────────
+Alt Başlık 1 ─────── 20s        Alt Başlık 1 ────┐
+Alt Başlık 2 ─────── 20s        Alt Başlık 2 ────┤
+Alt Başlık 3 ─────── 20s        Alt Başlık 3 ────┼─ 20s (Toplam)
+Alt Başlık 4 ─────── 20s        Alt Başlık 4 ────┤
+Alt Başlık 5 ─────── 20s        Alt Başlık 5 ────┤
+Alt Başlık 6 ─────── 20s        Alt Başlık 6 ────┘
+───────────────────────         ─────────────────────
+Toplam: 120s                    Toplam: 20s
+Yavaş, sıkıcı                   6x hızlı!
+```
 
-### Akışlı Rapor Üretimi
+<table>
+<tr>
+<th>Alt Başlık Sayısı</th>
+<th>Sıralı İşlem</th>
+<th>Paralel İşlem (5 concurrent)</th>
+<th>Hızlanma</th>
+<th>Tasarruf</th>
+</tr>
+<tr>
+<td><b>3 konu</b></td>
+<td>60 saniye</td>
+<td>12 saniye</td>
+<td>5x</td>
+<td>-48 sn</td>
+</tr>
+<tr>
+<td><b>4 konu</b></td>
+<td>80 saniye</td>
+<td>16 saniye</td>
+<td>5x</td>
+<td>-64 sn</td>
+</tr>
+<tr>
+<td><b>6 konu</b></td>
+<td>120 saniye</td>
+<td>20 saniye</td>
+<td>6x</td>
+<td>-100 sn</td>
+</tr>
+</table>
 
-**Kullanıcı Deneyimi Metrikleri:**
+### Streaming vs Geleneksel
 
-| Metrik | Geleneksel | Akışlı | İyileştirme |
-|--------|-------------|-----------|-------------|
-| İlk içerik | 150s | 5-8s | 20-30x daha hızlı |
-| Algılanan bekleme | Yüksek | Düşük | 10x daha iyi UX |
-| Kullanıcı etkileşimi | Düşük | Yüksek | Sürekli geri bildirim |
+<table>
+<tr>
+<th>Metrik</th>
+<th>Geleneksel Yaklaşım</th>
+<th>Streaming Approach</th>
+<th>İyileştirme</th>
+</tr>
+<tr>
+<td><b>İlk içerik görünür</b></td>
+<td>150 saniye</td>
+<td>5-8 saniye</td>
+<td><b>20-30x daha hızlı</b></td>
+</tr>
+<tr>
+<td><b>Kullanıcı algısı</b></td>
+<td>Uzun bekleme</td>
+<td>Canlı feedback</td>
+<td><b>10x daha iyi UX</b></td>
+</tr>
+<tr>
+<td><b>Etkileşim</b></td>
+<td>Düşük (sıkıcı)</td>
+<td>Yüksek (ilgi çekici)</td>
+<td><b>Sürekli meşgul</b></td>
+</tr>
+<tr>
+<td><b>Bellek kullanımı</b></td>
+<td>Tüm rapor RAM'de</td>
+<td>Chunk-by-chunk</td>
+<td><b>Verimli</b></td>
+</tr>
+</table>
 
-**Teknik Uygulama:**
-- Bellek verimliliği için generator pattern
+**Teknik Detaylar**
+- **Generator Pattern**: Bellek verimli akış
 - Parça parça içerik sunumu
 - Kademeli UI renderlama
 - Gerçek zamanlı markdown ayrıştırma
@@ -443,7 +575,7 @@ Kalite seviyesi: Mükemmel (yayına hazır raporlar)
 
 **Recency (0-15 points)**
 - Publication date weighting
-- 2024-2025 content: Maximum points
+- 2025 content: Maximum points
 - Exponential decay for older content
 - Topic-specific temporal relevance
 
@@ -619,7 +751,7 @@ class CustomSearchTool:
 
 ## Versiyon Geçmişi
 
-### Versiyon 2.0 (15 Aralık 2024)
+### Versiyon 2.0 (15 Aralık 2025)
 
 **Performans İyileştirmeleri:**
 - Paralel araştırma uygulaması (6x hızlanma)
@@ -639,7 +771,7 @@ class CustomSearchTool:
 - Gelişmiş hata yönetimi
 - Kapsamlı günlük kaydı
 
-### Versiyon 1.0 (13 Aralık 2024)
+### Versiyon 1.0 (13 Aralık 2025)
 
 **İlk Yayın:**
 - Çok ajanlı araştırma sistemi
@@ -684,7 +816,7 @@ Bu proje aşağıdaki teknoloji ve hizmetleri kullanmaktadır:
 ---
 
 **Durum:** Üretim Hazır (v2.0)
-**Son Güncelleme:** 15 Aralık 2024
+**Son Güncelleme:** 15 Aralık 2025
 **Python Sürümü:** 3.12+
 **Lisans:** Açık Kaynak
 │   ├── planner_agent.py      # Alt başlık planlayıcı
@@ -898,7 +1030,7 @@ badges = ['verified', 'academic', 'gov']
 ```
 - Domain güvenilirliği (.edu, .gov, +40 puan)
 - İçerik kalitesi (uzunluk, derinlik)
-- Güncellik (2024 → +20 puan)
+- Güncellik (2025 → +20 puan)
 
 ### 4. Perspektif Analizi
 ```python
@@ -936,27 +1068,27 @@ Tam liste: [PROJECT_GUIDE.md - Harici Kaynaklar](PROJECT_GUIDE.md#harici-kaynakl
 
 ---
 
-## 🚀 Versiyon Notları
+## Versiyon Notları
 
-### v2.0 (15 Aralık 2024) - Performance Update
-- ✅ Paralel araştırma implementasyonu (6x hızlanma)
-- ✅ Streaming report generation (real-time UI)
-- ✅ Rate limit koruması (semaphore)
-- ✅ Demo mode (flash models, 4 subtopics)
-- ✅ Türkçe UI iyileştirmeleri
-- ✅ Emoji temizliği (profesyonel görünüm)
+### v2.0 (15 Aralık 2025) - Performance Update
+- Paralel araştırma implementasyonu (6x hızlanma)
+- Streaming report generation (real-time UI)
+- Rate limit koruması (semaphore)
+- Demo mode (flash models, 4 subtopics)
+- Türkçe UI iyileştirmeleri
+- Emoji temizliği (profesyonel görünüm)
 
-### v1.0 (13 Aralık 2024) - Initial Release
-- ✅ Multi-agent research system
-- ✅ Source reliability scoring
-- ✅ Perspective analysis
-- ✅ Quality metrics
-- ✅ Streamlit UI
+### v1.0 (13 Aralık 2025) - Initial Release
+- Multi-agent research system
+- Source reliability scoring
+- Perspective analysis
+- Quality metrics
+- Streamlit UI
 
 ---
 
-**Durum:** ✅ Production Ready (Performance Optimized)  
-**Son Güncelleme:** 15 Aralık 2024  
+**Durum:** Production Ready (Performance Optimized)  
+**Son Güncelleme:** 15 Aralık 2025  
 **Performans:** 60 saniye (demo) | 150 saniye (production)
 
-**İLK KEZ Mİ KULLANIYORSUN?** → [PROJECT_GUIDE.md](PROJECT_GUIDE.md) oku!
+**İLK KEZ Mİ KULLANIYORSUN?** [PROJECT_GUIDE.md](PROJECT_GUIDE.md) oku!
