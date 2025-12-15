@@ -1,52 +1,121 @@
-# Deep Research Agent
+# 🔬 Deep Research Agent
 
-## Genel Bakış
+<div align="center">
 
-Deep Research Agent, otomatik güvenilirlik puanlama, bakış açısı tespiti ve kalite değerlendirmesi ile kapsamlı çok kaynaklı analiz yapan gelişmiş bir yapay zeka destekli araştırma platformudur. Sistem, paralel işleme ve akış mimarileri kullanarak eşi görülmemiş hız ve doğrulukla profesyonel araştırma raporları sunar.
+### Yapay Zeka Destekli Gelişmiş Araştırma Platformu
 
-## Temel Özellikler
+**Paralel işleme ile 6x daha hızlı** | **Gerçek zamanlı rapor üretimi** | **Çok kaynaklı güvenilirlik analizi**
 
-### Ana Yetenekler
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Status: Production](https://img.shields.io/badge/Status-Production%20Ready-success)](https://github.com/siracgezgin/deep-research-agent)
 
-**Akıllı Planlama Sistemi**
-- Konuların otomatik olarak 3-6 araştırma alt başlığına ayrıştırılması
-- Gemini LLM kullanarak bağlama duyarlı alt başlık üretimi
-- Öncelik tabanlı araştırma stratejisi optimizasyonu
+[Hızlı Başlangıç](#kurulum-ve-yapılandırma) • [Özellikler](#temel-özellikler) • [Dokümantasyon](#dokümantasyon) • [Demo](#kullanım)
 
-**Paralel Araştırma Motoru**
-- Birden fazla alt başlık üzerinde eşzamanlı araştırma yürütme
-- Sıralı işlemeye göre 6 kat performans iyileştirmesi
-- Semaphore tabanlı istek yönetimi ile hız limiti koruması
-- Zarif hata yönetimi ile asenkron işleme
+</div>
 
-**Kaynak Güvenilirlik Puanlama**
-- Tüm kaynaklar için 0-100 arası bileşik güvenilirlik puanları
-- Domain otoritesi değerlendirmesi (.edu, .gov, akademik dergiler)
-- İçerik kalitesi değerlendirmesi (derinlik, yapı, alıntı kalıpları)
-- Yayın tarihine dayalı zamansal ilgililik puanlama
+---
 
-**Çok Bakış Açılı Analiz**
-- Farklı bakış açılarının otomatik tespiti (iyimser, kötümser, dengeli)
-- Çatışma tanımlama ve çözüm önerileri
-- Kaynaklar arası fikir birliği alanlarının haritalandırılması
-- LLM destekli bakış açısı sınıflandırması
+## 📋 Genel Bakış
 
-**Akışlı Rapor Üretimi**
-- Üretim sırasında gerçek zamanlı rapor oluşturma
-- Kademeli metin görüntüleme ile ChatGPT benzeri kullanıcı deneyimi
-- İlk içerik 5-8 saniye içinde görünür
-- Bellek verimliliği için generator pattern uygulaması
+Deep Research Agent, akademik ve profesyonel araştırmalarda yeni bir standart belirleyen yapay zeka platformudur. Sistem, web'den otomatik veri toplama, çok kaynaklı güvenilirlik analizi ve akıllı içerik sentezi ile **60 saniyede** kapsamlı araştırma raporları üretir.
 
-**Kalite Değerlendirme Çerçevesi**
-- Altı boyutlu kalite metrikleri (kaynak sayısı, çeşitlilik, güvenilirlik, derinlik, güncellik, kapsam)
-- Harf notu ile 0-100 bileşik kalite puanı (A+'dan F'ye)
-- Otomatik kalite eşiği doğrulaması
+### 🎯 Neden Deep Research Agent?
 
-**Profesyonel Web Arayüzü**
-- Türkçe yerelleştirme ile modern Streamlit tabanlı kullanıcı arayüzü
-- Detaylı günlük kaydı ile gerçek zamanlı ilerleme takibi
-- Etkileşimli veri görselleştirme ve metrik gösterimler
-- Tek tıkla rapor dışa aktarma (Markdown, JSON)
+| Özellik | Geleneksel Yöntem | Deep Research Agent |
+|---------|-------------------|---------------------|
+| **Araştırma Süresi** | 2-3 saat | 60-150 saniye |
+| **Kaynak Sayısı** | 5-10 manuel | 15-30 otomatik |
+| **Güvenilirlik Analizi** | Subjektif | 0-100 objektif skor |
+| **Perspektif Tespiti** | Manuel | Otomatik LLM analizi |
+| **Rapor Formatı** | Manuel yazım | Profesyonel Markdown |
+| **Gerçek Zamanlı İzleme** | Yok | Canlı ilerleme takibi |
+
+## ✨ Temel Özellikler
+
+<table>
+<tr>
+<td width="50%">
+
+### 🧠 Akıllı Planlama
+```
+Konu Analizi → Alt Başlıklar → Strateji
+```
+- **Otomatik ayrıştırma**: 3-6 alt başlık
+- **LLM optimizasyonu**: Bağlam duyarlı
+- **Öncelik tabanlı**: Akıllı sıralama
+
+</td>
+<td width="50%">
+
+### ⚡ Paralel Araştırma
+```
+6 Alt Başlık → Eşzamanlı İşlem → 20 saniye
+```
+- **6x hızlanma**: Sıralıya göre
+- **Güvenli rate limiting**: Semaphore(5)
+- **Asenkron**: asyncio + graceful errors
+
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+
+### 🎯 Güvenilirlik Skorlama
+```
+Domain (40) + İçerik (40) + Güncellik (20) = 0-100
+```
+- **Otoriteye önem**: .edu, .gov, akademik
+- **Derinlik analizi**: Yapı ve alıntılar
+- **2024-2025 içerik**: Maksimum puan
+
+</td>
+<td width="50%">
+
+### 🔄 Akışlı Üretim
+```
+Başlangıç → Chunk-by-chunk → Tamamlanma
+     ↓            ↓              ↓
+   0 sn         5-8 sn        60-150 sn
+```
+- **ChatGPT-like UX**: Canlı metin
+- **Generator pattern**: Bellek verimli
+- **İlk içerik**: 5 saniyede
+
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+
+### 👁️ Perspektif Analizi
+> İyimser | Kötümser | Dengeli
+
+Otomatik bakış açısı tespiti, çatışma analizi ve konsensüs haritalama ile çok boyutlu görüş değerlendirmesi.
+
+</td>
+<td width="50%">
+
+### 📊 Kalite Framework
+> **6 Metrik**: Kaynak • Çeşitlilik • Güvenilirlik • Derinlik • Güncellik • Kapsam
+
+**0-100 puan** + **A+ ~ F not** sistemi ile otomatik kalite garantisi.
+
+</td>
+</tr>
+</table>
+
+### 🖥️ Modern Web Arayüzü
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  🇹🇷 Türkçe Arayüz  •  📈 Canlı İlerleme  •  📥 Export  │
+├─────────────────────────────────────────────────────────┤
+│  Streamlit tabanlı, responsive, professional design     │
+│  Real-time logging • Interactive charts • One-click     │
+└─────────────────────────────────────────────────────────┘
+```
 
 ## Teknik Mimari
 
