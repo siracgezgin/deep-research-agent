@@ -927,7 +927,7 @@ research:
 
 ---
 
-## 🚀 Yeniden Oluşturma Rehberi
+## Yeniden Oluşturma Rehberi
 
 **Bu projeyi sıfırdan oluşturmak için:**
 
@@ -942,7 +942,7 @@ research:
 
 ---
 
-## 🐛 Hızlı Sorun Giderme
+## Hızlı Sorun Giderme
 
 ```bash
 # Bağımlılık hatası
@@ -1055,7 +1055,7 @@ conflicts = analyzer.detect_conflicts(sources)
 
 ---
 
-## 📖 Harici Kaynaklar
+## Harici Kaynaklar
 
 Bu projede kullanılan/incelenen kaynaklar:
 
